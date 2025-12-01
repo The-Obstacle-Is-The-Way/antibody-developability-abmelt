@@ -112,6 +112,7 @@ python_files = ["test_*.py", "*_test.py"]
 addopts = [
     "-v",
     "--tb=short",
+    "--import-mode=importlib",
     "--cov=abmelt_infer_pipeline/src",
     "--cov-report=term-missing",
 ]

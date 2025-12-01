@@ -209,3 +209,9 @@ burner_docs/
 *.so
 *.dylib
 abmelt_infer_pipeline/my_antibody.pdb
+
+# Root level garbage/temp
+log.txt
+test_logs/
+test_output/
+test_temp/
