@@ -48,7 +48,7 @@ line-length = 88
 target-version = "py311"
 src = ["abmelt_infer_pipeline/src", "abmelt_infer_pipeline/tests"]
 extend-exclude = [
-    "AbMelt/**",
+    "_AbMelt_reference/**",
     "reference_repos/**",
     "burner_docs/**",
 ]
@@ -70,7 +70,7 @@ disallow_untyped_defs = true
 check_untyped_defs = true
 strict_equality = true
 exclude = [
-    "AbMelt/.*",
+    "_AbMelt_reference/.*",
     "reference_repos/.*",
     "burner_docs/.*",
 ]
@@ -81,7 +81,7 @@ disallow_untyped_defs = false
 
 [[tool.mypy.overrides]]
 module = [
-    "AbMelt.*",
+    "_AbMelt_reference.*",
     "gromacs.*",
     "Bio.*",
     "MDAnalysis.*",
@@ -126,7 +126,7 @@ source = ["abmelt_infer_pipeline/src"]
 omit = [
     "abmelt_infer_pipeline/tests/*",
     "*/test_*.py",
-    "AbMelt/*",
+    "_AbMelt_reference/*",
     "reference_repos/*",
     "burner_docs/*",
 ]
