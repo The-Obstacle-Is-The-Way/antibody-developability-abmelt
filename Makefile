@@ -3,17 +3,11 @@
 
 .PHONY: all install format lint test clean help
 
-# Detect OS
-OS := $(shell uname -s 2>/dev/null || echo Windows)
-
-# Python command (assumes poetry is installed)
-POETRY := poetry
-
 help:  ## Show this help message
 	@echo "Usage: make [target]"
 	@echo ""
 	@echo "Targets:"
-	@echo "  install    Install dependencies with poetry"
+	@echo "  install    Install dependencies with uv"
 	@echo "  format     Format code with ruff"
 	@echo "  lint       Lint code with ruff and mypy"
 	@echo "  test       Run tests with pytest"
@@ -21,18 +15,18 @@ help:  ## Show this help message
 	@echo "  all        Run format, lint, and test"
 
 install:  ## Install dependencies
-	$(POETRY) install
+	uv sync --all-extras --dev
 
 format:  ## Format code
-	$(POETRY) run ruff format .
-	$(POETRY) run ruff check --fix .
+	uv run ruff format .
+	uv run ruff check --fix .
 
 lint:  ## Run static analysis
-	$(POETRY) run ruff check .
-	$(POETRY) run mypy abmelt_infer_pipeline/src/
+	uv run ruff check .
+	uv run mypy abmelt_infer_pipeline/src/
 
 test:  ## Run tests
-	$(POETRY) run pytest
+	uv run pytest
 
 all: format lint test  ## Run all checks
 
